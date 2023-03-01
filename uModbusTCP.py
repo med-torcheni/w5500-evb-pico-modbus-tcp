@@ -32,8 +32,8 @@ class ModbusTcpServer:
             led.toggle()
             try:
                 self._send_receive(0)
-            except:
-                print('Server problem occured')
+            except Exception as e:
+                print(e)
     
     def _send_receive(self, r):
         self.infds, self.outfds, self.errfds = select(self.inputs, [], [], 1/100000000)
